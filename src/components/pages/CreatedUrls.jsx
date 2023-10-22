@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { UrlAPI } from "../../api/global";
 import useAuth from "../../hooks/useAuth";
-import { useParams } from "react-router-dom";
 import axios from "../../api/axios";
 
 const CreatedUrls = () => {
@@ -11,10 +10,8 @@ const CreatedUrls = () => {
   const { auth } = useAuth();
   const axiosPrivate = useAxiosPrivate();
 
-  const { id } = useParams();
-
-  const handleRedirect = () => {
-    axios.get(`/api/redirect/${id}`).catch((error) => {
+  const handleRedirect = (shortUrlId) => {
+    axios.get(`/api/redirect/${shortUrlId}`).catch((error) => {
       console.error(error);
     });
   };
@@ -68,7 +65,7 @@ const CreatedUrls = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-success"
-                  onClick={handleRedirect}
+                  onClick={() => handleRedirect(url.shortUrlId)}
                 >
                   {url.shortUrl}
                 </a>
