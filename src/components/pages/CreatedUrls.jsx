@@ -2,12 +2,29 @@ import { useState, useEffect } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { UrlAPI } from "../../api/global";
 import useAuth from "../../hooks/useAuth";
+import { useParams } from "react-router-dom";
+import axios from "../../api/axios";
 
 const CreatedUrls = () => {
   const [urlData, setUrlData] = useState([]);
 
   const { auth } = useAuth();
   const axiosPrivate = useAxiosPrivate();
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    const redirectUrl = async () => {
+      try {
+        await axios.get(`/${id}`);
+      } catch (error) {
+        console.log("Url Redirection Error: ", error);
+      }
+    };
+
+    redirectUrl();
+    // eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     const fetchUrlData = async () => {
