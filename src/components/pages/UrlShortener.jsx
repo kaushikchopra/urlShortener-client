@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { UrlAPI } from "../../api/global";
 import useAuth from "../../hooks/useAuth";
-// import axios from "../../api/axios";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 
 const UrlShortener = () => {

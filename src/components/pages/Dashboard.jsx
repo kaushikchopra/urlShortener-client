@@ -1,9 +1,10 @@
+// eslint-disable-next-line
 import { Chart as ChartJS } from "chart.js/auto";
+// eslint-disable-next-line
 import { Chart, Line } from "react-chartjs-2";
 import { useEffect, useState } from "react";
 import { UrlAPI } from "../../api/global";
 import useAuth from "../../hooks/useAuth";
-// import axios from "../../api/axios";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 
 const Dashboard = () => {
@@ -34,6 +35,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
   // Data for Daily count
@@ -86,7 +88,9 @@ const Dashboard = () => {
 
   return (
     <div className="container text-center">
-      <h3 className="text-center mt-4 text-white bg-secondary p-2">User Dashboard</h3>
+      <h3 className="text-center mt-4 text-white bg-secondary p-2">
+        User Dashboard
+      </h3>
 
       <div className="row">
         <div className="col-lg-6 mb-3">

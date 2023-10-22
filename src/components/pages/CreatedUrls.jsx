@@ -3,14 +3,12 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { UrlAPI } from "../../api/global";
 import useAuth from "../../hooks/useAuth";
 
-
 const CreatedUrls = () => {
   const [urlData, setUrlData] = useState([]);
 
   const { auth } = useAuth();
   const axiosPrivate = useAxiosPrivate();
 
-  
   useEffect(() => {
     const fetchUrlData = async () => {
       try {
@@ -30,7 +28,8 @@ const CreatedUrls = () => {
     };
 
     fetchUrlData();
-  }, [auth]);
+    // eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     console.log(`UrlData: ${JSON.stringify(urlData)}`);
@@ -38,7 +37,9 @@ const CreatedUrls = () => {
 
   return (
     <div className="container mt-5">
-      <h4 className="text-center mb-4 text-white bg-secondary p-2">URL Table</h4>
+      <h4 className="text-center mb-4 text-white bg-secondary p-2">
+        URL Table
+      </h4>
       <table className="table table-bordered table-striped table-secondary">
         <thead className="thead-light">
           <tr>
