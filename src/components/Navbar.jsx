@@ -33,6 +33,7 @@ const Navbar = () => {
     };
 
     fetchUserData();
+    // eslint-disable-next-line
   }, []);
 
   const handleLogout = async () => {
