@@ -1,0 +1,25 @@
+body {
+  background-color: #fff;
+}
+
+.forgot-password {
+  cursor: pointer;
+}
+
+.forgot-password:hover {
+  color: #ca2323;
+}
+
+.small-text {
+  font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.special-error {
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
