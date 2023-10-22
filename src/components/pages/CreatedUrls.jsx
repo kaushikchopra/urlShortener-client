@@ -13,18 +13,11 @@ const CreatedUrls = () => {
 
   const { id } = useParams();
 
-  useEffect(() => {
-    const redirectUrl = async () => {
-      try {
-        await axios.get(`/${id}`);
-      } catch (error) {
-        console.log("Url Redirection Error: ", error);
-      }
-    };
-
-    redirectUrl();
-    // eslint-disable-next-line
-  }, []);
+  const handleRedirect = () => {
+    axios.get(`/api/redirect/${id}`).catch((error) => {
+      console.error(error);
+    });
+  };
 
   useEffect(() => {
     const fetchUrlData = async () => {
@@ -75,6 +68,7 @@ const CreatedUrls = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-success"
+                  onClick={handleRedirect}
                 >
                   {url.shortUrl}
                 </a>
